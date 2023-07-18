@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+<!-- Adding task -->
+
+
+
+
+<div class="adding" id="addtask">
+   <div class="popup-content">
+    <h1>Enter the task</h1>
+    <form method="post">
+      {% csrf_token %}
+        <label for="title">Enter task</label> :
+        <input id="title" name='title' type="text" required> <br>
+        <label for="desc">Enter descrition </label> :
+        <input id="desc" name='desc' type="text"> <br>
+        <div class="priority_options">
+        <label>Select your preference : </label>
+        <select required name='option'>
+          <option value="" disabled selected>Select an option</option>
+          <option value="1">High Priority</option>
+          <option value="2">Priority</option>
+          <option value="3">Importent</option>
+          <option value="4">Not Importent</option>
+        </select>
+        </div>
+        <button type="submit" id="add_button">Add</button> <button id="close_button">Close</button>
+    </form>
+    </div>
+</div>
+
+{% if onetask %}
+    <div class="adding1" id="addtask">
+      <div class="popup-content">
+        <h1>Enter the task</h1>
+        <form method="post">
+          {% csrf_token %}
+            <label for="title">Enter task</label> :
+            <input id="title" name='title' type="text" value="{{ onetask.title }}"> <br>
+            <label for="desc">Enter descrition </label> :
+            <input id="desc" name='desc' type="text" value="{{ onetask.desc }}"> <br>
+            <div class="priority_options">
+            <label>Select your preference : </label>
+            <select name='option'>
+              <option value="" disabled selected>Select an option</option>
+              <option value="1" {% if onetask.priority == '1' %} {{ "selected" }} {% endif %}>High Priority</option>
+              <option value="2" {% if onetask.priority == '2' %} {{ "selected" }} {% endif %}>Priority</option>
+              <option value="3" {% if onetask.priority == '3' %} {{ "selected" }} {% endif %}>Importent</option>
+              <option value="4" {% if onetask.priority == '4' %} {{ "selected" }} {% endif %}>Not Importent</option>
+            </select>
+            </div>
+            <button type="submit" id="add_button">Add</button> 
+        </form>
+        <div class="thingds">
+        <button id="close_button" onclick="closeFunction1()">Close</button>
+        </div>
+        </div>
+    </div>
+{% endif %}
+
+<!-- adding task completed -->
+
+<!-- Showing data  -->
+
+<div class="responsive-table mb-40">
+<table class="main__table">
+  <thead>
+    <tr>
+      <th>Activity name</th>
+      <th>Label</th>
+      <th>Created At</th>
+      <th>&nbsp</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for d in data %}
+    <tr>
+    <td>
+      <div class="showing_title_desc">
+      <div class="showing_title">
+        {{d.title}}
+      </div>
+      {% if d.desc != None %}
+      <div class="showing_desc">
+        {{d.desc}}
+      </div>
+      {% endif %}
+      </div>
+    </td>
+      {% if d.priority == '1' %}
+      <td><div class="label red">High Priority</div></td>
+      {% endif %}
+      {% if d.priority == '2' %}
+      <td><div class="label orange">Secondary</div></td>
+      {% endif %}
+      {% if d.priority == '3' %}
+      <td><div class="label green">Importent</div></td>
+      {% endif %}
+      {% if d.priority == '4' %}
+      <td><div class="label gray">Do it Later</div></td>
+      {% endif %}
+      <td>{{d.created_at}}</td>
+      <td><div class="updated">
+        <div class="edit"><a href="UpDateTask/{{d.id}}"><img src="{% static 'edit_button.png' %}"></a></div>
+        <div class="delete"><a href="DeleteTask/{{d.id}}"><img src="{% static 'delete_button.png' %}"></a></div></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<!-- complted showing data  -->
+
+
+<!-- Plush symbol -->
+
+<div class="plus_sign" id="plus_id">
+  <div class="actualplus">+</div>
+</div>
+
+
+
+
+{% endblock %}

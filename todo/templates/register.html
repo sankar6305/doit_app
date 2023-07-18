@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+    <div class="login_page">
+    <h1>Create account</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="id_username">{{forms.username.label}} : </label>
+        {{forms.username}} <br> <br>
+        <label for="id_password1">{{forms.password1.label}} : </label>
+        {{forms.password1}} <br> <br>
+        <label for="id_password1">{{forms.password2.label}} : </label>
+        {{forms.password2}}
+        <br>
+        <button type="submit" id="id_submit">Register</button>
+    </form>
+    </div>
+
+{% endblock %}

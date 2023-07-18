@@ -1,0 +1,224 @@
+
+
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <link rel="icon" type="images/x-icon" href="/static/logo_title.png" />
+    
+    <title>Todo App</title>
+    <style>
+        * {
+    background-color: #212121 !important;
+    color: #fff !important;
+}
+
+
+/* login page css */
+
+.login_page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.login_page h1 {
+
+    margin-bottom: 0px;
+    font-size: 2em;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1em;
+
+}
+
+#id_username,
+#id_password,
+#id_password1,
+#id_password2 {
+    width: 200px;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #212121 !important;
+    color: #fff !important;
+}
+
+#id_username:focus,
+#id_password:focus,
+#id_password1:focus,
+#id_password2:focus {
+    outline: none;
+    box-shadow: 0 0 10px #fff;
+}
+
+#id_username::placeholder,
+#id_password1::placeholder,
+#id_password2::placeholder,
+#id_password::placeholder {
+    color: #fff;
+}
+
+
+#id_submit {
+    padding: 2px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    background-color: #212121;
+    color: #fff;
+}
+
+#id_submit:hover {
+    background-color: #fff !important;
+    box-shadow: 0 0 10px #fff;
+    color: #212121 !important;
+}
+
+.errorlist .nonfield {
+    color: red;
+    font-size: 1em;
+    margin-bottom: 1em;
+}
+
+
+/* base page css  */
+.logo_a,
+.login_a,
+.signup_a {
+    font-size: 2em;
+    font-weight: 400;
+}
+
+.logo_a:hover,
+.login_a:hover,
+.signup_a:hover {
+    box-shadow: 2px 5px 10px #fff;
+    color: #000 !important;
+    background-color: #fff !important;
+    border-radius: 5px;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.nav a {
+    display: inline;
+    padding: 5px;
+    text-decoration: none;
+    color: #000;
+}
+
+.plus_sign {
+    text-align: center;
+    z-index: 2;
+    position: fixed;
+    margin: 20px;
+    padding: 10px;
+    background-color: #333 !important;
+    border-radius: 100%;
+    right: 0;
+    bottom: 0;
+    height: 45px;
+    width: 50px;
+}
+
+.actualplus {
+    padding: 0px;
+    margin: 0px;
+    font-size: 35px;
+    font-weight: 1000;
+    background-color: #333 !important;
+}
+
+.actualplus>a {
+    text-decoration: none;
+    padding: 0px;
+    margin: 0px;
+    background-color: #333 !important;
+}
+
+.plus_sign:hover {
+    box-shadow: 0 0 10px #fff;
+    cursor: pointer;
+}
+
+
+.adding {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+
+/* for pop up */
+
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+    </style>
+</head>
+<body>
+  <div class="nav">
+    <div class="logo" style="flex-grow: 8;"><a href="/" class="logo_a"> DO IT </a></div>
+    <div class="login" style="flex-grow: 1;"><a href="login" class="login_a">Login</a></div>
+    <div class="signup" style="flex-grow: 1;"><a href="registration" class="signup_a">Sign Up</a></div>
+  </div>
+  
+
+
+<div class="plus_sign">
+  <div class="actualplus">+</div>
+</div>
+
+
+<div class="adding" onclick="GetThing()">
+    <h1>Add the task</h1> 
+    <form method="post" >
+        <label for="title">Enter the title</label> :
+        <input id="title" name='title' type="text"> <br>
+        <label for="desc">Enter the descrition </label> :
+        <input id="desc" name='desc' type="text"> <br>
+        <button type="submit">Add</button>
+    </form>
+</div>
+
+
+
+
+
+  <script>
+  function GetThing() {
+    console.log("I got clicked");
+  }
+  </script>
+</body>
+</html>

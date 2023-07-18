@@ -1,0 +1,26 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="icon" type="images/x-icon" href="{% static 'logo_title.png' %}" />
+    
+    <title>Todo App</title>
+</head>
+<body>
+  <div class="nav">
+    <div class="logo" style="flex-grow: 8;"><a href="/" class="logo_a"> DO IT </a></div>
+    <div class="login" style="flex-grow: 1;"><a href="login" class="login_a">Login</a></div>
+    <div class="signup" style="flex-grow: 1;"><a href="registration" class="signup_a">Sign Up</a></div>
+  </div>
+  {% block content %}{% endblock %}
+  <script>
+  function closeFunction1() {
+    window.location.href = "{% url 'home' %}"
+  }
+  </script>
+  <script src="{% static 'adding_task.js' %}"></script>
+  
+
+</body>
+</html>
