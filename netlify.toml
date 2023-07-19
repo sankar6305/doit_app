@@ -1,4 +1,1 @@
-[build]
-  publish = "/todo/static"
-  command = "python manage.py collectstatic --noinput"
- 
+
