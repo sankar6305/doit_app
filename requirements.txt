@@ -1,3 +1,13 @@
+asgiref==3.7.2
+backports.zoneinfo==0.2.1
+beautifulsoup4==4.12.2
 Django==4.2.2
-python==3.8.3
-
+django-webtest==1.9.10
+Pillow==10.0.0
+soupsieve==2.4.1
+sqlparse==0.4.4
+typing_extensions==4.7.0
+tzdata==2023.3
+waitress==2.1.2
+WebOb==1.8.7
+WebTest==3.0.0
