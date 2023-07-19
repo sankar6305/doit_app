@@ -15,6 +15,5 @@
       "src": "/(.*)",
       "dest": "myblog/manage.py"
     }
-  ],
-  "plugins": ["django-static"]
+  ]
 }
