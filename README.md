@@ -1,6 +1,6 @@
 # doit_app
 
-## Step 1: Login / Register
+## Step 1: Login / Register page
 
 ![image](https://github.com/sankar6305/doit_app/assets/58016341/b25c1c7e-c1cb-40a7-816b-f4ecc9371f9f)
 
